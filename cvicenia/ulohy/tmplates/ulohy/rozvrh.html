@@ -1,0 +1,15 @@
+<h1>{{ den }}</h1>
+<table border="1">
+    <tr> <th>hodina</th> <th>predmet</th> </tr>
+    {% for h in hodiny %}
+    <tr>
+        <td>{{ h.cislo }}</td>
+        <td>{{ h.predmet }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="2">voľno :)</td>
+    </tr>
+    {% endfor %}
+    </tr>
+</table>
