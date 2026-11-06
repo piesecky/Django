@@ -1,0 +1,56 @@
+
+
+1. inštalácia django do python:
+	dip install django
+	pip list
+
+
+Package  Version
+-------- -------
+asgiref  3.11.1
+Django   6.0.6
+pip      26.1.2
+sqlparse 0.5.5
+tzdata   2026.2
+
+2. vytvorenie projektu: 
+	django-admin startproject nazov_projektu .
+
+3. nastavenie slovenčiny pre projekt:
+	nazov_projektu/settings.py:
+		LANGUAGE_CODE = 'sk'
+		TIME_ZONE = 'Erope/Bratislava'
+
+4.spustenie vývojového servera:
+	python.exe .\manage.py runserver
+
+5. vytvorenie aplikácie:
+	 python.exe .\manage.py startapp nazov_aplikacie
+
+6.registácia aplikácie do projektu:
+     nazov_projektu/settings.py:
+	INSTALLED_APPS = [
+	    'django.contrib.admin',
+	    'django.contrib.auth',
+	    'django.contrib.contenttypes',
+	    'django.contrib.sessions',
+	    'django.contrib.messages',
+	    'django.contrib.staticfiles',
+	    'nazov_aplikacie',
+	]
+7. vytvorenie jednoduchého views (nazov_aplikacie/views.py):
+	from django.shortcuts import render, HttpResponse
+
+	def index(request):
+	    return HttpResponse("hello world!")
+
+8. vytvorenie urlpatern:
+8.1 nazov_projektu/urls.py:
+	from django.contrib import admin
+	from django.urls import path, include 
+
+	urlpatterns = [
+	    path('admin/', admin.site.urls),
+	    path("skola/", include("skola.urls")),
+	]
+8.2
